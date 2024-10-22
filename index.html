@@ -14,7 +14,6 @@
             z-index : -100;
         }
         body{
-            /* overflow: hidden; */
             margin: 0;
         }
     </style>
@@ -51,16 +50,29 @@
 
             function font() {
                 let f = [
-                        [0x4E00,0x9FA5],[0x0500,0x052F],[0x05D0,0x05EA],
-                        [0x066E,0x06D3],[0x0800,0x083E],[0x2E80,0x2EF3],
-                        [0x3041,0x3096],[0x103A0,0x103D5],[0x13000,0x1342E],
-                        [0x0370,0x03FF],[0x0030,0x007A],[0x1F700,0x1F773]
+                        [0x4DC0,0x4DFF],//易经六十四卦符号
+                        [0x4E00,0x9FA5],//中文
+                        [0x0500,0x052F],
+                        [0x10330,0x1034F],//
+                        [0x05D0,0x05EA], //希伯来
+                        [0x0600,0x06FF],//阿拉伯语
+                        [0x30A0,0x30FF],//日文片假名
+                        [0x3040,0x309F],//日文平假名
+                        [0x2E80,0x2EFF],//中日韩汉字部首补充
+                        [0x1800,0x18AF],//蒙古语
+                        [0x0F00,0x0FFF],//藏文
+                        [0x0900,0x097F],//梵文
+                        [0x13000,0x1342F], //圣书体
+                        [0x12000,0x123FF], //苏美尔楔形文
+                        [0x0030,0x0039], //数字
+                        [0x0041,0x007A], //字母
+                        // [],//
                     ];
                 let fran = Math.floor(Math.random()*f.length)
                 const minCodePoint = f[fran][0];
                 const maxCodePoint = f[fran][1]; 
                 const randomCodePoint = Math.floor(Math.random() * (maxCodePoint - minCodePoint + 1)) + minCodePoint;
-                return String.fromCharCode(randomCodePoint)
+                return String.fromCodePoint(randomCodePoint)
             }
 
             let fontarr = []
@@ -95,9 +107,6 @@
 
             setInterval(draw, 80);
 
-
-
         </script>
     </body>
-
 </html>
